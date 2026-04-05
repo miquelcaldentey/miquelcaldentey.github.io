@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soundboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111827;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .panel {
+      width: 90%;
+      max-width: 800px;
+      padding: 2rem;
+      background: #1f2937;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .sound-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+    }
+
+    .sound-btn {
+      background: #374151;
+      border: none;
+      border-radius: 12px;
+      padding: 1.5rem 1rem;
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .sound-btn:hover {
+      background: #4b5563;
+      transform: scale(1.05);
+    }
+
+    .icon {
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>Soundboard</h1>
+
+    <div class="sound-grid">
+      <button class="sound-btn" onclick="playSound('audios/flecha.mp3')">
+        <span class="icon">🏹</span>
+        Flecha
+      </button>
+
+      <button class="sound-btn" onclick="playSound('audios/latido.mp3')">
+        <span class="icon">💓</span>
+        Latido
+      </button>
+
+      <button class="sound-btn" onclick="playSound('audios/monstruo_ambiental.mp3')">
+        <span class="icon">👾</span>
+        Monstruo Ambiental
+      </button>
+
+      <button class="sound-btn" onclick="playSound('audios/monstruo_roar.mp3')">
+        <span class="icon">👾😱</span>
+        Gruñido Monstruo
+      </button>
+	  
+	  <button class="sound-btn" onclick="playSound('audios/pisadas.mp3')">
+        <span class="icon">👣</span>
+        Pisadas
+      </button>
+	  
+	  <button class="sound-btn" onclick="playSound('audios/puerta_desbloqueo.mp3')">
+        <span class="icon">🚪</span>
+        Puerta desbloqueada
+      </button>
+    </div>
+  </div>
+
+  <audio id="player"></audio>
+
+  <script>
+    function playSound(file) {
+      const player = document.getElementById('player');
+      player.src = file;
+      player.play();
+    }
+  </script>
+</body>
+</html>
